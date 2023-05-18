@@ -1,5 +1,11 @@
+<div>
+  <h1>My Awesome Marketplace:</h1>
 
-<ng-container *ngIf="books$ | async as books">
-    <bmc-book [book]="book" *ngFor="let book of books" (addToCart)="addToCart($event)"></bmc-book>
-</ng-container>
+  <div>
+    <ul>
+      <a routerLink="/feed"><li>Feed</li></a>
+      <a routerLink="/cart"><li>Cart</li></a>
+    </ul>
+  </div>
+</div>
 <router-outlet></router-outlet>

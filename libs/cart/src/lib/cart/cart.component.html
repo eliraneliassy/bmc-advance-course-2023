@@ -1,0 +1,5 @@
+<h2>My Decent Shopping Cart:</h2>
+
+<ng-container *ngIf="cart$ | async as books">
+    <bmc-book [book]="book" *ngFor="let book of books"></bmc-book>
+</ng-container>

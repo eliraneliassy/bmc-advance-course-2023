@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 
 import { HttpClientModule } from '@angular/common/http';
-import { BooksModule } from '@bmc/books';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +13,7 @@ import { BooksModule } from '@bmc/books';
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     HttpClientModule,
-    BooksModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

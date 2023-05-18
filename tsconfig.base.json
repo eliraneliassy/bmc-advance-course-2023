@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bmc/books": ["libs/books/src/index.ts"]
+      "@bmc/books": ["libs/books/src/index.ts"],
+      "@bmc/cart": ["libs/cart/src/index.ts"],
+      "@bmc/feed": ["libs/feed/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
