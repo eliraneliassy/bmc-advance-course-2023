@@ -1,0 +1,21 @@
+<div class="container" *ngIf="book">
+    <div class="title">
+        Title: {{book.title}}
+    </div> 
+
+    <div class="description">
+        Description: {{book.description}}
+    </div>
+
+    <img [src]="book.imageLink">
+
+    <div class="price">
+        {{book.price}}
+    </div>
+
+    <button (click)="addToCartHandler()">Add To Cart </button>
+
+    
+
+
+</div>

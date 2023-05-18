@@ -1,2 +1,5 @@
-<bmcadnavcecourse2023-nx-welcome></bmcadnavcecourse2023-nx-welcome>
+
+<ng-container *ngIf="books$ | async as books">
+    <bmc-book [book]="book" *ngFor="let book of books" (addToCart)="addToCart($event)"></bmc-book>
+</ng-container>
 <router-outlet></router-outlet>
