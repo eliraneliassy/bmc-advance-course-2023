@@ -1,24 +1,17 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, map } from "rxjs";
+import { AuthStore } from "./auth.store";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-    private userName$ = new BehaviorSubject<string | null>(null);
-
-    isLoggedIn$: Observable<boolean> = this.getUserName().pipe(
-        map((userName) => !!userName)
-    )
-
-    getUserName() {
-        return this.userName$.asObservable();
-    }
+    constructor(private authStore: AuthStore) { }
 
     login(userName: string) {
-        this.userName$.next(userName);
+        this.authStore.update((currentState) => ({ ...currentState, userName }))
     }
 
     logout() {
-        this.userName$.next(null);
+        this.authStore.update((currentState) => ({ ...currentState, userName: null }))
     }
 }
