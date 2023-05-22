@@ -3,8 +3,12 @@ import { Route } from '@angular/router';
 export const appRoutes: Route[] = [
     {
         path: '',
-        redirectTo: 'feed',
+        redirectTo: 'auth',
         pathMatch: 'full'
+    },
+    {
+        path: 'auth',
+        loadChildren: () => import('@bmc/auth').then(m => m.AuthModule)
     },
     {
         path: 'feed',

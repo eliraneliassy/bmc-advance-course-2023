@@ -8,6 +8,9 @@
     </ul>
   </div>
 
+  <div class="user" *ngIf="userName$ | async as userName">
+    Hello, {{userName}}
+  </div>
   <div class="items-in-cart">
     # of items: {{numOfItemsInCart$ | async }}
   </div>
