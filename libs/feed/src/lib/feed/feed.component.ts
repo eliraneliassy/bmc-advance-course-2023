@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Book, BooksService } from '@bmc/books';
+import { CartService } from '@bmc/cart-bl';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,14 +11,14 @@ import { Observable } from 'rxjs';
 })
 export class FeedComponent implements OnInit {
   books$?: Observable<Book[]>;
-  constructor(private booksService: BooksService) {
-    
+  constructor(private booksService: BooksService, private cartService: CartService) {
+
   }
   ngOnInit(): void {
     this.books$ = this.booksService.getBooks('Angular');
   }
 
-  addToCart(book: Book){
-    console.log('add to cart', book);
+  addToCart(book: Book) {
+    this.cartService.addToCart(book);
   }
 }

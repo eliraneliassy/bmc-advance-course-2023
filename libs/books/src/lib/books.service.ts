@@ -19,6 +19,7 @@ export class BooksService {
                     price: item.volumeInfo.pageCount,
                     description: item.volumeInfo.description,
                     imageLink: item.volumeInfo.imageLinks?.thumbnail,
+                    id: item.id
 
                 })))
             )

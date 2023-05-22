@@ -17,6 +17,7 @@
     "paths": {
       "@bmc/books": ["libs/books/src/index.ts"],
       "@bmc/cart": ["libs/cart/src/index.ts"],
+      "@bmc/cart-bl": ["libs/cart-bl/src/index.ts"],
       "@bmc/feed": ["libs/feed/src/index.ts"]
     }
   },

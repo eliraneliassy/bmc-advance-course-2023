@@ -3,4 +3,5 @@ export interface Book {
     description: string;
     price: number;
     imageLink: string;
+    id: string;
 }
