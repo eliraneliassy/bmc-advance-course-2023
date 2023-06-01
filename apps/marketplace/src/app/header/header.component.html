@@ -7,11 +7,12 @@
       <a routerLink="/cart"><li>Cart</li></a>
     </ul>
   </div>
-
-  <div class="user" *ngIf="userName$ | async as userName">
-    Hello, {{userName}}
+<ng-container *ngIf="viewObs$ | async as viewObs">
+  <div class="user" >
+    Hello, {{viewObs.userName}}
   </div>
   <div class="items-in-cart">
-    # of items: {{numOfItemsInCart$ | async }}
+    # of items: {{viewObs.numOfItems }}
   </div>
+</ng-container>
 </div>
