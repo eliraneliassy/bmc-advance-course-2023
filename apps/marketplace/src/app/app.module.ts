@@ -6,6 +6,7 @@ import { appRoutes } from './app.routes';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import {SliderModule} from "@bmc/ui";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -13,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     HttpClientModule,
+    SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],
