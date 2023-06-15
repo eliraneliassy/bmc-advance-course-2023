@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, ElementRef, Input, NgModule, ViewChild} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgIf} from '@angular/common';
 import {
   AbstractControl,
   ControlValueAccessor, NG_VALIDATORS,
@@ -14,6 +14,9 @@ import {
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgIf]
+
   // providers: [
   //   {
   //     provide: NG_VALUE_ACCESSOR,
@@ -79,9 +82,3 @@ constructor(protected controlDir: NgControl) {
 
 }
 
-@NgModule({
-  imports: [CommonModule],
-  declarations: [InputComponent],
-  exports: [InputComponent],
-})
-export class InputModule {}

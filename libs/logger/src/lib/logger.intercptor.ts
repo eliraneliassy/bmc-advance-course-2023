@@ -1,21 +1,24 @@
-import {Injectable} from "@angular/core";
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {catchError, EMPTY, Observable, of} from "rxjs";
+import {inject, Inject, Injectable} from "@angular/core";
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpInterceptorFn, HttpRequest} from "@angular/common/http";
+import {catchError, EMPTY, Observable, of, retry} from "rxjs";
 import {LoggerService} from "./logger.service";
+import {LoggerConfig} from "./logger.interface";
+import {LOGGER_CONFIG} from "./logger.token";
 
-@Injectable()
-export  class LoggerIntercptor implements  HttpInterceptor {
 
-  constructor(private loggerService: LoggerService) {
-  }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(req)
-      .pipe(
-        catchError((err) => {
-          this.loggerService.log(`HTTP ERROR ${err.message}`)
-          return of(err);
-        })
-      );
-  }
 
+
+export const loggerInterceptor: HttpInterceptorFn = (req, next) => {
+
+  const config = inject(LOGGER_CONFIG);
+  const loggerService = inject(LoggerService);
+
+  return next(req)
+    .pipe(
+      retry(config.retryCount),
+      catchError((err) => {
+        loggerService.log(`HTTP ERROR ${err.message}`)
+        return of(err);
+      })
+    );
 }

@@ -1,13 +1,17 @@
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {HeaderComponent} from "./header/header.component";
+import {RouterOutlet} from "@angular/router";
 
 
 @Component({
   selector: 'marketplace-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [HeaderComponent, RouterOutlet]
 })
 export class AppComponent {
 

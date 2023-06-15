@@ -1,12 +1,15 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, Inject, Input, NgModule, TemplateRef} from '@angular/core';
-import {CommonModule, DOCUMENT} from '@angular/common';
-import {ButtonModule} from "../button/button.module";
+import {CommonModule, DOCUMENT, NgFor, NgTemplateOutlet} from '@angular/common';
+
+import {ButtonComponent} from "../button/button.component";
 
 @Component({
   selector: 'b-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ButtonComponent, NgFor, NgTemplateOutlet]
 })
 export class SliderComponent implements  AfterViewInit{
   @Input() slides: string[] = [];
@@ -47,9 +50,3 @@ export class SliderComponent implements  AfterViewInit{
 
 }
 
-@NgModule({
-  imports: [CommonModule, ButtonModule],
-  declarations: [SliderComponent],
-  exports: [SliderComponent],
-})
-export class SliderModule {}

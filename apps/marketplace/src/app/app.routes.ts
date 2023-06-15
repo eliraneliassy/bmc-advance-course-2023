@@ -8,14 +8,14 @@ export const appRoutes: Route[] = [
     },
     {
         path: 'auth',
-        loadChildren: () => import('@bmc/auth').then(m => m.AuthModule)
+        loadComponent: () => import('@bmc/auth').then(m => m.LoginComponent)
     },
     {
         path: 'feed',
-        loadChildren: () => import('@bmc/feed').then(m => m.FeedModule)
+      loadComponent: () => import('@bmc/feed').then(m => m.FeedComponent)
     },
     {
         path: 'cart',
-        loadChildren: () => import('@bmc/cart').then(m => m.CartModule)
+      loadComponent: () => import('@bmc/cart').then(m => m.CartComponent)
     }
 ];

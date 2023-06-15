@@ -1,13 +1,16 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Book, BooksService } from '@bmc/books';
+import {Book, BookComponent, BooksService} from '@bmc/books';
 import { CartService } from '@bmc/cart-bl';
 import { Observable } from 'rxjs';
+import {AsyncPipe, NgFor, NgIf} from "@angular/common";
 
 @Component({
   selector: 'bmc-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgIf, NgFor, AsyncPipe, BookComponent]
 })
 export class FeedComponent implements OnInit {
   books$?: Observable<Book[]>;
