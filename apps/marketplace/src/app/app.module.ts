@@ -7,6 +7,7 @@ import { appRoutes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import {SliderModule} from "@bmc/ui";
+import {LOGGER_CONFIG, LoggerModule} from "@bmc/logger";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -14,9 +15,12 @@ import {SliderModule} from "@bmc/ui";
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     HttpClientModule,
-    SliderModule
+    SliderModule,
+    LoggerModule.init({appName: 'marketplace'})
   ],
-  providers: [],
+  providers: [
+    // {provide: LOGGER_CONFIG, useValue: {appName: 'MARKETPLACE'}}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

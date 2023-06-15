@@ -1,5 +1,6 @@
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
@@ -9,6 +10,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
+
+  constructor(private http: HttpClient) {
+    this.http.get('https://jsonplaceholder.typicode.casdom/posts').subscribe()
+  }
 
   slides = [
     'https://cdn.wallpapersafari.com/72/58/WLHYwR.jpg',

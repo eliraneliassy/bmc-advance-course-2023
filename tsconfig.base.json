@@ -21,6 +21,7 @@
       "@bmc/cart": ["libs/cart/src/index.ts"],
       "@bmc/cart-bl": ["libs/cart-bl/src/index.ts"],
       "@bmc/feed": ["libs/feed/src/index.ts"],
+      "@bmc/logger": ["libs/logger/src/index.ts"],
       "@bmc/ui": ["libs/ui-components/src/index.ts"]
     }
   },
