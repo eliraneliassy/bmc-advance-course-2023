@@ -6,7 +6,7 @@
     <img src="https://www.shutterstock.com/image-vector/checkmark-icon-vector-on-white-260nw-1265329483.jpg">
   </div>
 
-  <small style="color: red" *ngIf="!controlDir.control.valid">
+  <small style="color: red" *ngIf="!controlDir.control?.valid">
     {{errorMsg}}
   </small>
 
